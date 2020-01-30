@@ -12,7 +12,6 @@ function App() {
       role: "Full Stack"
     }
   ]);
-
   const addNewMember = (member) => {
     const newMember = {
       id: Date.now(),

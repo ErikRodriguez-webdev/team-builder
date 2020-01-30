@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function Form(props) {
-  const [member, setMember] = useState({
+  const [aMember, setAMember] = useState({
     name: "",
     email: "",
     role: ""
@@ -9,27 +9,27 @@ function Form(props) {
 
   //User info handler here
   const changeHandler = (event) => {
-    setMember({ ...member, [event.target.name]: event.target.value });
+    setAMember({ ...aMember, [event.target.name]: event.target.value });
   };
 
   //Submit handler here
   const submitHandler = (event) => {
-    event.preventdefault();
-    props.addNewMember(member);
-    setMember({ name: "", email: "", role: "" });
+    event.preventDefault();
+    props.addNewMember(aMember);
+    setAMember({ name: "", email: "", role: "" });
   };
 
   //Form layout is here
   return (
     <form onSubmit={submitHandler}>
-      <label htmlFor="name">Full Name: </label>
+      <label htmlFor="name">Name: </label>
       <input
         id="name"
         name="name"
         type="text"
-        placeholder="Name"
+        placeholder="Enter Full Name"
         onChange={changeHandler}
-        value={member.name}
+        value={aMember.name}
       />
       <br />
 
@@ -37,26 +37,22 @@ function Form(props) {
       <input
         id="email"
         name="email"
-        type="email"
+        type="text"
         placeholder="Email"
         onChange={changeHandler}
-        value={member.email}
+        value={aMember.email}
       />
       <br />
 
-      <label htmlFor="role">Select Role: </label>
-      <select
+      <label htmlFor="role">Role: </label>
+      <input
         id="role"
         name="role"
+        type="text"
+        placeholder="Enter Role"
         onChange={changeHandler}
-        value={member.role}
-      >
-        <option value="front end">Front End</option>
-        <option value="back end">Back End</option>
-        <option value="full stack">Full Stack</option>
-        <option value="full stack">Full Stack</option>
-        <option value="ui designer">UI Designer</option>
-      </select>
+        value={aMember.role}
+      />
       <br />
 
       <button type="submit">Submit</button>

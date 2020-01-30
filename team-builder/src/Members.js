@@ -4,11 +4,11 @@ function CardMaker(props) {
   console.log(props);
   return (
     <div>
-      {props.memberList.map((note) => (
-        <div className="note" key={note.id}>
-          <h2>{note.name}</h2>
-          <p>{note.email}</p>
-          <p>{note.role}</p>
+      {props.memberList.map((items) => (
+        <div key={items.id}>
+          <h2>{items.name}</h2>
+          <p>{items.email}</p>
+          <p>{items.role}</p>
         </div>
       ))}
     </div>
